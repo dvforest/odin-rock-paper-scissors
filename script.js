@@ -29,6 +29,29 @@ function playGame(){
     let humanScore = 0;
     let computerScore = 0;
 
+    let body = document.querySelector("body");
+
+    let gameDiv = document.createElement("div");
+    gameDiv.style.cssText = "display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;"
+    body.appendChild(gameDiv);
+
+    let buttonsDiv = document.createElement("div");
+    buttonsDiv.style.padding = "10px";
+    gameDiv.appendChild(buttonsDiv);
+
+    let buttons = ["Rock", "Paper", "Scissors"];    
+    buttons.forEach((element) => {
+        let button = document.createElement("button");
+        button.textContent = element;
+        button.style.margin = "5px";
+        buttonsDiv.appendChild(button);
+    });
+
+    let gameLog = document.createElement("div");
+    gameLog.textContent = "Choose Rock, Paper, or Scissors.";
+    gameDiv.appendChild(gameLog);
+ 
+
     function playRound(){
         let computerSelection = getComputerChoice();
         let humanSelection = getHumanChoice();
@@ -75,13 +98,6 @@ function playGame(){
             console.log("You won the game! Congratulations!");
         }
     }
-
-    console.log("Welcome to Rock, Paper, Scissors! The game is played over 5 rounds.")
-    for (let i = 1; i <= 5; i++){
-        console.log("Round " + i + "!")
-        playRound();
-    }
-    displayWinner();
 
 }
 
