@@ -15,14 +15,6 @@ function getComputerChoice(){
     return choice;
 }
 
-function getHumanChoice(e){
-    gameLog.textContent = "Choose Rock, Paper, or Scissors.";
-    while (!(choice === "rock" || choice === "paper" || choice === "scissors")){
-        choice = prompt("Invalid entry! You may only choose Rock, Paper, or Scissors.").toLowerCase();
-    }
-    return choice;
-}
-
 function playGame(){
 
     let humanScore = 0;
@@ -58,7 +50,7 @@ function playGame(){
 
     function playRound(e){
         rounds++;
-        if (rounds === 5) {
+        if (rounds >= 5) {
             displayWinner();
         }
         else {
